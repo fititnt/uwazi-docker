@@ -6,13 +6,18 @@ LABEL maintainer="Emerson Rocha <rocha@ieee.org>"
 ## Install common software
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
   bzip2 \
-  git
+  dh-autoreconf \
+  git \
+  libpng-dev
 
 ## Download Uwazi
-RUN git clone -b master --single-branch --depth=1 https://github.com/huridocs/uwazi.git /home/node/uwazi/
+RUN git clone -b master --single-branch --depth=1 https://github.com/huridocs/uwazi.git /home/node/uwazi/ \
+  && chown node:node -R /home/node/uwazi/ \
+  && cd /home/node/uwazi/ \
+  && npm install
 
-WORKDIR /home/node/uwazi/
-RUN npm install
+# WORKDIR /home/node/uwazi/
+# RUN npm install
 
 # RUN "ls /home/node/uwazi-development"
 

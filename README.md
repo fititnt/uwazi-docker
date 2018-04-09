@@ -18,6 +18,7 @@ _Note: this repository is **not** ready for use, even for development. These
 commands are for testing._
 
 - `docker-compose up --build`
+- `docker exec -it uwazidocker_uwazi_1 bash`
 
 ## License
 
