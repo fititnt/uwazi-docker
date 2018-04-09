@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  uwazi:
+    build: ./
+    user: "node"
+    working_dir: /home/node/uwazi
+
+# TODO: install ElasticSearch (fititnt, 2018-04-09 08:36 BRT)
+# TODO: install MongoDB (fititnt, 2018-04-09 08:36 BRT)

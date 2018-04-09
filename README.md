@@ -1,6 +1,6 @@
 # Uwazi with Docker
 This work-in-progress repository have one alternative way of use using
-[Docker containers](https://docker.com) to run Uwazi.
+[Docker containers](https://docker.com) to run [Uwazi](https://www.uwazi.io/).
 
 ## What is Uwazi?
 
@@ -11,6 +11,13 @@ storing and tagging documents. Users work directly with the text inside these
 otherwise uneditable documents to add new layers of information.
 [Uwazi is a web-based, open-source solution](https://github.com/huridocs/uwazi/)
 for building and sharing document collections.
+
+## How to run
+
+_Note: this repository is **not** ready for use, even for development. These
+commands are for testing._
+
+- `docker-compose up --build`
 
 ## License
 
