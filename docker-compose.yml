@@ -5,6 +5,46 @@ services:
     build: ./
     user: "node"
     working_dir: /home/node/uwazi
+    ports:
+      - 3000:3000
+    command: "yarn hot"
+    depends_on:
+      - elasticsearch
+      - mongo
 
 # TODO: install ElasticSearch (fititnt, 2018-04-09 08:36 BRT)
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.5.3
+    restart: unless-stopped
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+    #ports:
+    #  - 9200:9200
+
 # TODO: install MongoDB (fititnt, 2018-04-09 08:36 BRT)
+  mongo:
+    image: mongo:3.4
+    restart: unless-stopped
+    volumes:
+     - ./data/mongo:/data/db
+     #- ./data/dump:/dump
+    command: mongod --smallfiles
+    logging:
+      options:
+        max-size: 10m
+        max-file: '3'
+
+volumes:
+  esdata1:
+    driver: local
+
+
+
