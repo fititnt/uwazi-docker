@@ -8,6 +8,8 @@ services:
     ports:
       - 3000:3000
     command: "yarn production-build"
+    #networks:
+    #  - exposed
     depends_on:
       - elasticsearch
       - mongo
@@ -26,6 +28,7 @@ services:
         hard: -1
     volumes:
       - esdata1:/usr/share/elasticsearch/data
+    # TODO: close these ports (fititnt, 2018-04-14 10:22 BRT)
     ports:
       - 9200:9200
 
@@ -42,6 +45,17 @@ services:
       options:
         max-size: 10m
         max-file: '3'
+
+  # Cross-platform and self hosted, easy to use mongodb management tool - Formerly Mongoclient
+  # See https://github.com/nosqlclient/nosqlclient
+  mongo-gui-mongoclient:
+    image: mongoclient/mongoclient:latest
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
+    depends_on:
+      - mongo
+    ports:
+      - 51000:3000
 
 volumes:
   esdata1:

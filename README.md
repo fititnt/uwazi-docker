@@ -47,6 +47,7 @@ _Ignore this part if you are not debbuging uwazi-docker._
 - Run Elastic Search, Mongo, and force rebuild the Dockerfile Uwazi: `docker-compose up --build`
 - Login on the running Uwazi container: `docker exec -it uwazidocker_uwazi_1 bash`
 - Run only Elastic Search and MongoDB (e.g. if you are running Uwazi without docker): `docker-compose up elasticsearch mongo`
+- Elastic Search, MongoDB + GUI for MongoDB on <http://127.0.0.1:51000/>: `docker-compose up elasticsearch mongo mongo-gui-mongoclient`
 
 <!--
 
