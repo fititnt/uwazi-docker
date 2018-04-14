@@ -12,10 +12,37 @@ otherwise uneditable documents to add new layers of information.
 [Uwazi is a web-based, open-source solution](https://github.com/huridocs/uwazi/)
 for building and sharing document collections.
 
-## How to run
+## Usage
+[uwazi-docker](https://github.com/fititnt/uwazi-docker) requires
+[docker-compose](https://docs.docker.com/compose/install/) installed.
 
-_Note: this repository is **not** ready for use, even for development. These
-commands are for testing._
+> At this moment, the Dockerfile of the uwazi is not ready, only it's external
+> dependencies (Elastic Search and MongoDB), so you will also need install
+[NVM](https://github.com/creationix/nvm) and [Yarn](https://yarnpkg.com/).
+
+```bash
+git clone git@github.com:fititnt/uwazi-docker.git
+cd uwazi-docker
+docker-compose up -d elasticsearch mongo
+git clone git@github.com:huridocs/uwazi.git
+cd uwazi
+git checkout 1.1
+nvm install 6.13
+npm install
+yarn production-build
+yarn blank-state
+yarn reindex
+yarn run-production
+```
+
+One your browser at <http://127.0.0.1:3000/>.
+
+See extra configurations at
+[github.com/huridocs/uwazi](https://github.com/huridocs/uwazi/).
+
+### Debug
+
+_Ignore this part if you are not debbuging uwazi-docker._
 
 - Run Elastic Search, Mongo, and force rebuild the Dockerfile Uwazi: `docker-compose up --build`
 - Login on the running Uwazi container: `docker exec -it uwazidocker_uwazi_1 bash`
