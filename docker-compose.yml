@@ -25,8 +25,8 @@ services:
         hard: -1
     volumes:
       - esdata1:/usr/share/elasticsearch/data
-    #ports:
-    #  - 9200:9200
+    ports:
+      - 9200:9200
 
   mongo:
     image: mongo:3.4
@@ -35,6 +35,8 @@ services:
      - ./data/mongo:/data/db
      #- ./data/dump:/dump
     command: mongod --smallfiles
+    ports:
+      - 27017:27017
     logging:
       options:
         max-size: 10m

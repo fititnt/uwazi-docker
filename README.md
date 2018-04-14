@@ -19,6 +19,9 @@ commands are for testing._
 
 - `docker-compose up --build`
 - `docker exec -it uwazidocker_uwazi_1 bash`
+- `docker-compose up elasticsearch mongo # Only Elastic Search and MongoDB (e.g. running Uwazi without docker`
+
+See [how to uninstall](uninstall.md).
 
 ## License
 
