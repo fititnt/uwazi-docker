@@ -1,10 +1,15 @@
 # Uwazi with Docker
-This work-in-progress repository have one alternative way of use using
-[Docker containers](https://docker.com) to run [Uwazi](https://www.uwazi.io/).
+This work-in-progress repository allows you to run the
+[Uwazi](http://www.uwazi.io) using [Docker containers](https://docker.com). It
+can be a good alternative if you are testing the software and have no
+proeficiency with the entire stack of applications involved.
+
+**The Uwazi software is available in the [github.com/huridocs/uwazi](https://github.com/huridocs/uwazi/)
+repository.**
 
 ## What is Uwazi?
 
-In Swahili, Uwazi means “openness.” HURIDOCS designed Uwazi to make human rights
+> In Swahili, Uwazi means “openness.” HURIDOCS designed Uwazi to make human rights
 information more open and accessible to the defenders who need it.
 [Uwazi](http://www.uwazi.io) is a web-based platform that goes beyond just
 storing and tagging documents. Users work directly with the text inside these
@@ -12,13 +17,17 @@ otherwise uneditable documents to add new layers of information.
 [Uwazi is a web-based, open-source solution](https://github.com/huridocs/uwazi/)
 for building and sharing document collections.
 
+See also [History of Uwazi](https://github.com/huridocs/uwazi/wiki/History-of-Uwazi).
+
 ## Usage
-[uwazi-docker](https://github.com/fititnt/uwazi-docker) requires
+The [uwazi-docker](https://github.com/fititnt/uwazi-docker) requires
 [docker-compose](https://docs.docker.com/compose/install/) installed.
 
 > At this moment, the Dockerfile of the uwazi is not ready, only it's external
 > dependencies (Elastic Search and MongoDB), so you will also need install
 [NVM](https://github.com/creationix/nvm) and [Yarn](https://yarnpkg.com/).
+
+Run these commands on your terminal:
 
 ```bash
 git clone git@github.com:fititnt/uwazi-docker.git
@@ -35,10 +44,22 @@ yarn reindex
 yarn run-production
 ```
 
-One your browser at <http://127.0.0.1:3000/>.
+Open your browser at <http://localhost:3000/>.
 
-See extra configurations at
-[github.com/huridocs/uwazi](https://github.com/huridocs/uwazi/).
+### Customization
+Provably will be much easier lean a bit more about
+[Docker compose](https://docs.docker.com/compose/overview/) and use the
+[docker-compose.yml](docker-compose.yml) as base for your testing or
+even for deploying environment than learn, configure and optimize every
+part of the stack. But assume that _uwazi-docker_ will try to use small
+amount of RAM by default, which means it could run slower even if the Docker
+hosts have more RAM available. Consider this as starting point.
+
+Another point that you may consider is that if you believe you are more
+practical with your previous skills and experience, you may decide not to use
+all stack applications inside docker containers. One example is running
+database storages directly on Virtual Machines (or even physical machines)
+on the production environment.
 
 ### Debug
 
