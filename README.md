@@ -69,6 +69,7 @@ _Ignore this part if you are not debbuging uwazi-docker._
 - Run only Elastic Search and MongoDB (e.g. if you are running Uwazi without docker): `docker-compose up -d elasticsearch mongo`
 - GUI for ElasticSearch (Dejavu) on <http://localhost:51000/>: `docker-compose up -d elasticsearch-gui-dejavu`
 - GUI for MongoDB (nosqlclient) on <http://localhost:52000/>: `docker-compose up -d mongo-gui-mongoclient`
+- Run all with docker `docker-compose up uwazi`
 
 
 <!--
