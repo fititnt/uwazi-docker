@@ -12,6 +12,7 @@ services:
       - DBHOST=mongo
       - DATABASE_NAME=uwazi_development
       - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - IS_FIRST_RUN=false
     depends_on:
       - elasticsearch
       - mongo
@@ -66,6 +67,8 @@ services:
   # See https://github.com/nosqlclient/nosqlclient
   mongo-gui-mongoclient:
     image: mongoclient/mongoclient:latest
+    volumes:
+     - ./data/mongo:/data/db
     environment:
       - MONGO_URL=mongodb://mongo:27017
     depends_on:
