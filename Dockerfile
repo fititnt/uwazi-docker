@@ -14,7 +14,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
 RUN git clone -b 1.1 --single-branch --depth=1 https://github.com/huridocs/uwazi.git /home/node/uwazi/ \
   && chown node:node -R /home/node/uwazi/ \
   && cd /home/node/uwazi/ \
-  && npm install
+  && yarn install \
+  && yarn production-build
+
+# yarn blank-state
+# yarn reindex
+# yarn run-production
 
 # WORKDIR /home/node/uwazi/
 # RUN npm install

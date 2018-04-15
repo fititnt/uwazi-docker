@@ -55,8 +55,7 @@ part of the stack. But assume that _uwazi-docker_ will try to use small
 amount of RAM by default, which means it could run slower even if the Docker
 hosts have more RAM available. Consider this as starting point.
 
-Another point that you may consider is that if you believe you are more
-practical with your previous skills and experience, you may decide not to use
+Based on your previous skills and experience, you may decide not to use
 all stack applications inside docker containers. One example is running
 database storages directly on Virtual Machines (or even physical machines)
 on the production environment.
