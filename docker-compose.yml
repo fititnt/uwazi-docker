@@ -3,12 +3,15 @@ version: "3"
 services:
   uwazi:
     build: ./
-    user: "node"
     working_dir: /home/node/uwazi
     ports:
       - 3000:3000
     #networks:
     #  - exposed
+    environment:
+      - DBHOST=mongo
+      - DATABASE_NAME=uwazi_development
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
     depends_on:
       - elasticsearch
       - mongo

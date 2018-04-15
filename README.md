@@ -70,6 +70,7 @@ _Ignore this part if you are not debbuging uwazi-docker._
 - GUI for ElasticSearch (Dejavu) on <http://localhost:51000/>: `docker-compose up -d elasticsearch-gui-dejavu`
 - GUI for MongoDB (nosqlclient) on <http://localhost:52000/>: `docker-compose up -d mongo-gui-mongoclient`
 - Run all with docker `docker-compose up uwazi`
+<!-- - Run all with docker `docker-compose up uwazi --build` -->
 
 
 <!--
