@@ -11,7 +11,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
   libpng-dev
 
 ## Download Uwazi
-RUN git clone -b master --single-branch --depth=1 https://github.com/huridocs/uwazi.git /home/node/uwazi/ \
+RUN git clone -b 1.1 --single-branch --depth=1 https://github.com/huridocs/uwazi.git /home/node/uwazi/ \
   && chown node:node -R /home/node/uwazi/ \
   && cd /home/node/uwazi/ \
   && npm install
