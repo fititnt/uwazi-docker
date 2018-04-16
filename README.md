@@ -23,15 +23,62 @@ See also [History of Uwazi](https://github.com/huridocs/uwazi/wiki/History-of-Uw
 The [uwazi-docker](https://github.com/fititnt/uwazi-docker) requires
 [docker-compose](https://docs.docker.com/compose/install/) installed.
 
+### Install
 Run these commands on your terminal:
 
 ```bash
 git clone git@github.com:fititnt/uwazi-docker.git
 cd uwazi-docker
-docker-compose run -e IS_FIRST_RUN=true uwazi
+docker-compose run -e IS_FIRST_RUN=true --rm uwazi
+```
+
+### Run
+
+```bash
+docker-compose up -d uwazi
 ```
 
 Open your browser at <http://localhost:3000/>. User: _admin_, password: _admin_.
+
+### Basic docker commands
+
+```bash
+# Stop all containers from this uwazi-docker and do not restart again until you explicit ask for it
+docker-compose stop
+
+# Using "-d" param to run uwazi and its dependencies on background
+docker-compose up -d uwazi
+
+# No "-d" param, start uwazi, MongoDB & Elastic Search and see what is happening inside the containers
+docker-compose up uwazi
+
+# See what containers are running now
+docker ps
+
+# Want some GUI to see what is happening on MongoDB? Use nosqlclient
+docker-compose up -d mongo-gui-mongoclient
+
+# Want some GUI to see what is happening on Elastic Search? Try Dejavu
+docker-compose up -d mongo-gui-mongoclient
+```
+
+### Extra features
+
+#### Want some GUI to see what is happening on MongoDB? Use nosqlclient
+
+```bash
+docker-compose up -d mongo-gui-mongoclient
+```
+
+By default, uses <http://localhost:51000/>.
+
+#### Want some GUI to see what is happening on Elastic Search? Try Dejavu
+
+```bash
+docker-compose up -d elasticsearch-gui-dejavu
+```
+
+By default, uses <http://localhost:52000/>.
 
 ### Customization
 Provably will be much easier lean a bit more about
@@ -47,19 +94,7 @@ all stack applications inside docker containers. One example is running
 database storages directly on Virtual Machines (or even physical machines)
 on the production environment.
 
-### Debug
-
-_Ignore this part if you are not debugging uwazi-docker._
-
-- Run Elastic Search, Mongo, and force rebuild the Dockerfile Uwazi: `docker-compose up --build`
-- Login on the running Uwazi container: `docker exec -it uwazidocker_uwazi_1 bash`
-- Run only Elastic Search and MongoDB (e.g. if you are running Uwazi without docker): `docker-compose up -d elasticsearch mongo`
-- GUI for ElasticSearch (Dejavu) on <http://localhost:51000/>: `docker-compose up -d elasticsearch-gui-dejavu`
-- GUI for MongoDB (nosqlclient) on <http://localhost:52000/>: `docker-compose up -d mongo-gui-mongoclient`
-- Run all with docker `docker-compose up uwazi`
-<!-- - Initialize databases (Run this first time): `docker-compose build` and then `docker-compose run -e IS_FIRST_RUN=true uwazi`-->
-<!-- - Run all with docker `docker-compose up uwazi --build` -->
-
+### Uninstall
 
 See [how to uninstall](uninstall.md).
 
