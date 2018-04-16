@@ -6,13 +6,11 @@ services:
     working_dir: /home/node/uwazi
     ports:
       - 3000:3000
-    #networks:
-    #  - exposed
     environment:
       - DBHOST=mongo
       - DATABASE_NAME=uwazi_development
       - ELASTICSEARCH_URL=http://elasticsearch:9200
-      - IS_FIRST_RUN=false
+      - IS_FIRST_RUN=${IS_FIRST_RUN:-false}
     depends_on:
       - elasticsearch
       - mongo

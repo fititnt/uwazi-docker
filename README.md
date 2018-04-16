@@ -23,25 +23,12 @@ See also [History of Uwazi](https://github.com/huridocs/uwazi/wiki/History-of-Uw
 The [uwazi-docker](https://github.com/fititnt/uwazi-docker) requires
 [docker-compose](https://docs.docker.com/compose/install/) installed.
 
-> At this moment, the Dockerfile of the uwazi is not ready, only it's external
-> dependencies (Elastic Search and MongoDB), so you will also need install
-[NVM](https://github.com/creationix/nvm) and [Yarn](https://yarnpkg.com/).
-
 Run these commands on your terminal:
 
 ```bash
 git clone git@github.com:fititnt/uwazi-docker.git
 cd uwazi-docker
-docker-compose up -d elasticsearch mongo
-git clone git@github.com:huridocs/uwazi.git
-cd uwazi
-git checkout 1.1
-nvm install 6.13
-npm install
-yarn production-build
-yarn blank-state
-yarn reindex
-yarn run-production
+docker-compose run -e IS_FIRST_RUN=true uwazi
 ```
 
 Open your browser at <http://localhost:3000/>. User: _admin_, password: _admin_.
