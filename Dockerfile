@@ -17,7 +17,8 @@ RUN git clone -b 1.1 --single-branch --depth=1 https://github.com/huridocs/uwazi
   && yarn install \
   && yarn production-build
 
-ADD --chown=node:node ./scripts/patch/uwazi/database/reindex_elastic.js /home/node/uwazi/uwazi/database/reindex_elastic.js
+COPY --chown=node:node ./scripts/patch/uwazi/database/reindex_elastic.js /home/node/uwazi/database/reindex_elastic.js
+RUN cat /home/node/uwazi/database/reindex_elastic.js
 
 WORKDIR /home/node/uwazi/
 COPY --chown=node:node docker-entrypoint.sh /docker-entrypoint.sh
