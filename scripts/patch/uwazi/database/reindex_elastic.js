@@ -39,7 +39,12 @@ connect()
 
   const start = Date.now();
   process.stdout.write(`Deleting index... ${indexConfig.index}\n`);
-  let indexUrl = `http://localhost:9200/${indexConfig.index}`;
+  // let indexUrl = `http://localhost:9200/${indexConfig.index}`;
+
+  // NOTE: the next like is hardcoded to work with uwazi-docker when ElasticSearch is running inside a docker network
+  //       but will not work if using Elastic Search outside this network. A win-win alternativa is change it to use
+  //       existent environment variable ELASTICSEARCH_URL (fititnt, 2018-04-15 23:14 BRT)
+  let indexUrl = `http://elasticsearch:9200/${indexConfig.index}`;
   request.delete(indexUrl)
   .catch(console.log)
   .then(() => {
