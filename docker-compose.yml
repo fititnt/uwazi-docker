@@ -15,6 +15,19 @@ services:
       - elasticsearch
       - mongo
 
+  uwazi-installer:
+    build: ./
+    restart: "no"
+    working_dir: /home/node/uwazi
+    environment:
+      - DBHOST=mongo
+      - DATABASE_NAME=uwazi_development
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - IS_FIRST_RUN=true
+    depends_on:
+      - elasticsearch
+      - mongo
+
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:5.5.3
     restart: unless-stopped

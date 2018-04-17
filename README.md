@@ -30,7 +30,9 @@ Run these commands on your terminal:
 git clone git@github.com:fititnt/uwazi-docker.git
 cd uwazi-docker
 docker-compose run -e IS_FIRST_RUN=true --rm uwazi
+
 ```
+<!-- docker-compose run --rm uwazi-installer -->
 
 ### Run
 
