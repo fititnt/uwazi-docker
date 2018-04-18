@@ -108,5 +108,5 @@ To the extent possible under law, [Emerson Rocha](https://github.com/fititnt)
 has waived all copyright and related or neighboring rights to this work to
 [Public Domain](UNLICENSE).
 
-Optionally, you can choose to use the [MIT License](DUAL-LICENSE-MIT.md) instead
-of Public Domain unlicense.
+Optionally, you can choose to use the [MIT License](https://opensource.org/licenses/MIT)
+instead of Public Domain unlicense.
