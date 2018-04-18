@@ -2,7 +2,7 @@
 This work-in-progress repository allows you to run the
 [Uwazi](http://www.uwazi.io) using [Docker containers](https://docker.com). It
 can be a good alternative if you are testing the software and have no
-proeficiency with the entire stack of applications involved.
+proficiency with the entire stack of applications involved.
 
 **The Uwazi software is available in the [github.com/huridocs/uwazi](https://github.com/huridocs/uwazi/)
 repository.**
@@ -20,8 +20,8 @@ for building and sharing document collections.
 See also [History of Uwazi](https://github.com/huridocs/uwazi/wiki/History-of-Uwazi).
 
 ## Usage
-The [uwazi-docker](https://github.com/fititnt/uwazi-docker) requires
-[docker-compose](https://docs.docker.com/compose/install/) installed.
+The uwazi-docker requires docker-compose installed. See
+[requirements](requirements.md).
 
 ### Install
 Run these commands on your terminal:
