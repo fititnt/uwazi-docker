@@ -105,4 +105,8 @@ See [how to uninstall](uninstall.md).
 [![Public Domain](https://i.creativecommons.org/p/zero/1.0/88x31.png)](UNLICENSE)
 
 To the extent possible under law, [Emerson Rocha](https://github.com/fititnt)
-has waived all copyright and related or neighboring rights to this work.
+has waived all copyright and related or neighboring rights to this work to
+[Public Domain](UNLICENSE).
+
+Optionally, you can choose to use the [MIT License](DUAL-LICENSE-MIT.md) instead
+of Public Domain unlicense.
