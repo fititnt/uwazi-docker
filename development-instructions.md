@@ -48,7 +48,45 @@ docker-compose up elasticsearch mongo
 
 # To run on background use -d param
 docker-compose up -d elasticsearch mongo
+
+# Stop all containers from uwazi-docker after they where not more need and
+# avoid they stay running even after you reboot your operational system
+docker-compose down
 ```
+
+The following step is optional if you want to populate the databases not using
+uwazi-docker.
+
+```bash
+docker-compose run -e IS_FIRST_RUN=true --rm uwazi
+```
+
+## Create your own repository
+If you already does not have, [join on GitHub with a free account](https://github.com/join).
+Then go to <https://github.com/huridocs/uwazi> and click fork.
+
+![fork-uwazi](https://user-images.githubusercontent.com/812299/39087980-7020a3da-4580-11e8-8fe3-57b1c09e962c.png)
+
+You now have a forked version at <https://github.com/YOUR-USERNAME/uwazi>.
+A few steps more and you [can create pull requests and contribute](https://help.github.com/articles/creating-a-pull-request/).
+
+Extra links:
+- Install GitHub Desktop (Windows and Mac): <https://desktop.github.com/>
+  - This link is great for who is new to git and GitHub and is not using linux.
+    This guide assume use of command line interface
+- Interactive Git Tutorial: <https://try.github.io>
+  - This is a good tutorial for who uses command like to work with git.
+
+## Working with Uwazi - your local fork
+**Important: some commands will only work on uwazi (not the docker-uwazi) folder**
+
+```bash
+git clone git@github.com:YOUR-USERNAME/uwazi.git
+cd uwazi
+```
+
+**For complete instructions about how to run Uwazi for development, see
+the oficial guide at<https://github.com/huridocs/uwazi#development>**.
 
 ## Extra tips
 
