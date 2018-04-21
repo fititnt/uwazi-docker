@@ -81,12 +81,30 @@ Extra links:
 **Important: some commands will only work on uwazi (not the docker-uwazi) folder**
 
 ```bash
+# Clone your forked repository to a local folder
 git clone git@github.com:YOUR-USERNAME/uwazi.git
 cd uwazi
+
+# Install node modules used by Uwazi.
+yarn install
 ```
 
+Now, each time you want to run, execute
+
+```bash
+yarn hot
+```
+
+**If everything goes ok, you will see something similar to this**:
+
+![yarn hot](https://user-images.githubusercontent.com/812299/39088499-a3d0783c-4589-11e8-997a-1703b4013617.png)
+
+**Uwazi welcome screen by default will show at <http://localhost:3000/>**
+
+![uwazi welcome screen](https://user-images.githubusercontent.com/812299/39088501-a8d3c5aa-4589-11e8-9997-bfbd64820f28.png)
+
 **For complete instructions about how to run Uwazi for development, see
-the oficial guide at<https://github.com/huridocs/uwazi#development>**.
+the oficial guide at <https://github.com/huridocs/uwazi#development>**.
 
 ## Extra tips
 
@@ -105,3 +123,41 @@ CONTAINER ID        IMAGE                                                 COMMAN
 22d753159257        docker.elastic.co/elasticsearch/elasticsearch:5.5.3   "elasticsearch -Expa…"   5 days ago          Up 3 minutes        0.0.0.0:9200->9200/tcp, 9300/tcp   uwazidocker_elasticsearch_1
 752a0a2ab505        mongo:3.4                                             "docker-entrypoint.s…"   5 days ago          Up 3 minutes        0.0.0.0:27017->27017/tcp           uwazidocker_mongo_1
 ```
+
+Protip: **0.0.0.0:9200->9200/tcp** means that a container named
+_uwazidocker_elasticsearch_1_ is redirecting its internal port 9200 to your
+local development machine. **9300/tcp** means the same container have the port
+9300 open but its only acessible inside a docker network.
+
+### Debug Mongo and Elastic Search
+
+```bash
+
+# See log messages of Mongo and Elastic Search
+docker-compose logs -f mongo elasticsearch
+
+# Want some GUI to see what is happening on MongoDB? Use nosqlclient
+docker-compose up -d mongo-gui-mongoclient
+
+# Want some GUI to see what is happening on Elastic Search? Try Dejavu
+docker-compose up -d elasticsearch-gui-dejavu
+```
+
+### Configure ports of Mongo and Elastic Search
+
+At this point, you have to edit the file [docker-compose.yml](docker-compose.yml)
+and edit the hardcored values.
+
+Protip: the most common error of using uwazi-docker with Uwazi a port is already
+used by another container or the installed Mongo / Elastic Search on your
+machine.
+
+### Multiple versions of Mongo and Elastic Search running
+With docker, is possible to have the complete full Uwazi stack running with no
+changes except by the only required port to be accessed outside docker (in this# Want some GUI to see what is happening on MongoDB? Use nosqlclient
+docker-compose up -d mongo-gui-mongoclient
+
+# Want some GUI to see what is happening on Elastic Search? Try Dejavu
+docker-compose up -d elasticsearch-gui-dejavu
+case, the Uwazi port, at 3000). Some more advanced examples not related to Uwazi
+can be found at <https://github.com/fititnt/chatops-wg-infra>

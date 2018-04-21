@@ -62,7 +62,7 @@ docker ps
 docker-compose up -d mongo-gui-mongoclient
 
 # Want some GUI to see what is happening on Elastic Search? Try Dejavu
-docker-compose up -d mongo-gui-mongoclient
+docker-compose up -d elasticsearch-gui-dejavu
 ```
 
 ### Extra features
@@ -82,20 +82,6 @@ docker-compose up -d elasticsearch-gui-dejavu
 ```
 
 By default, uses <http://localhost:52000/>.
-
-### Customization
-Probably will be much easier lean a bit more about
-[Docker compose](https://docs.docker.com/compose/overview/) and use the
-[docker-compose.yml](docker-compose.yml) as base for your testing or
-even for deploying environment than learn, configure and optimize every
-part of the stack. But assume that _uwazi-docker_ will try to use small
-amount of RAM by default, which means it could run slower even if the Docker
-hosts have more RAM available. Consider this as starting point.
-
-Based on your previous skills and experience, you may decide not to use
-all stack applications inside docker containers. One example is running
-database storages directly on Virtual Machines (or even physical machines)
-on the production environment.
 
 ### Uninstall
 
