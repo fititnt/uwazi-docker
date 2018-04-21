@@ -21,7 +21,8 @@ See also [History of Uwazi](https://github.com/huridocs/uwazi/wiki/History-of-Uw
 
 ## Usage
 The uwazi-docker requires docker-compose installed. See
-[requirements](requirements.md).
+[requirements](requirements.md). If you are a developer, can also check some
+advanced information on [development-instructions.md](development-instructions.md).
 
 ### Install
 Run these commands on your terminal:
@@ -83,7 +84,7 @@ docker-compose up -d elasticsearch-gui-dejavu
 By default, uses <http://localhost:52000/>.
 
 ### Customization
-Provably will be much easier lean a bit more about
+Probably will be much easier lean a bit more about
 [Docker compose](https://docs.docker.com/compose/overview/) and use the
 [docker-compose.yml](docker-compose.yml) as base for your testing or
 even for deploying environment than learn, configure and optimize every
