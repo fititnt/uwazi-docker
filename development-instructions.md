@@ -142,7 +142,6 @@ docker-compose up -d mongo-gui-mongoclient
 # Want some GUI to see what is happening on Elastic Search? Try Dejavu
 docker-compose up -d elasticsearch-gui-dejavu
 ```
-
 ### Configure ports of Mongo and Elastic Search
 
 At this point, you have to edit the file [docker-compose.yml](docker-compose.yml)
@@ -151,13 +150,3 @@ and edit the hardcored values.
 Protip: the most common error of using uwazi-docker with Uwazi a port is already
 used by another container or the installed Mongo / Elastic Search on your
 machine.
-
-### Multiple versions of Mongo and Elastic Search running
-With docker, is possible to have the complete full Uwazi stack running with no
-changes except by the only required port to be accessed outside docker (in this# Want some GUI to see what is happening on MongoDB? Use nosqlclient
-docker-compose up -d mongo-gui-mongoclient
-
-# Want some GUI to see what is happening on Elastic Search? Try Dejavu
-docker-compose up -d elasticsearch-gui-dejavu
-case, the Uwazi port, at 3000). Some more advanced examples not related to Uwazi
-can be found at <https://github.com/fititnt/chatops-wg-infra>
