@@ -80,6 +80,11 @@ Extra links:
 ## Working with Uwazi - your local fork
 **Important: some commands will only work on uwazi (not the docker-uwazi) folder**
 
+
+> For complete instructions about how to run Uwazi for development, see
+the oficial guide at <https://github.com/huridocs/uwazi#development>. This
+document is a quick start.
+
 ```bash
 # Clone your forked repository to a local folder
 git clone git@github.com:YOUR-USERNAME/uwazi.git
@@ -87,6 +92,13 @@ cd uwazi
 
 # Install node modules used by Uwazi.
 yarn install
+
+# Initialize databases (Mongo and Elastic Search) with Uwazi default blank values
+# WARNING: if you already is using Uwazi and have Mongo and Elastic Search with
+#          test or real data, this can potentially reset to initial state
+#          depending of your environment variables like DATABASE_NAME and
+#          ELASTICSEARCH_URL.
+yarn blank-state
 ```
 
 Now, each time you want to run, execute
@@ -102,9 +114,6 @@ yarn hot
 **Uwazi welcome screen by default will show at <http://localhost:3000/>**
 
 ![uwazi welcome screen](https://user-images.githubusercontent.com/812299/39088501-a8d3c5aa-4589-11e8-9997-bfbd64820f28.png)
-
-**For complete instructions about how to run Uwazi for development, see
-the oficial guide at <https://github.com/huridocs/uwazi#development>**.
 
 ## Extra tips
 
