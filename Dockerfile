@@ -1,4 +1,4 @@
-FROM node:6-slim
+FROM node:8-slim
 LABEL maintainer="Emerson Rocha <rocha@ieee.org>"
 
 # see https://github.com/nodejs/docker-node#how-to-use-this-image
@@ -10,8 +10,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
   git \
   libpng-dev
 
-## Download Uwazi v1.2
-RUN git clone -b v1.2 --single-branch --depth=1 https://github.com/huridocs/uwazi.git /home/node/uwazi/ \
+## Download Uwazi v1.3
+RUN git clone -b v1.3 --single-branch --depth=1 https://github.com/huridocs/uwazi.git /home/node/uwazi/ \
   && chown node:node -R /home/node/uwazi/ \
   && cd /home/node/uwazi/ \
   && yarn install \
