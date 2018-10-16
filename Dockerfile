@@ -8,7 +8,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
   bzip2 \
   dh-autoreconf \
   git \
-  libpng-dev
+  libpng-dev \
+  poppler-utils
 
 ## Download Uwazi v1.3
 RUN git clone -b v1.3 --single-branch --depth=1 https://github.com/huridocs/uwazi.git /home/node/uwazi/ \
