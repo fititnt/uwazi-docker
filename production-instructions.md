@@ -1,4 +1,4 @@
-# Use of Uwazi production enviroment
+# Use of Uwazi in production environment
 > Disclaimer: [uwazi-docker](https://github.com/fititnt/uwazi-docker) can make it
 easy for someone unskilled test [Uwazi](https://www.uwazi.io/) and, at best,
 in hands with someone with a knowledge of docker/databases and free time, be a
