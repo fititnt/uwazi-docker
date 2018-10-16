@@ -28,7 +28,7 @@ advanced information on [development-instructions.md](development-instructions.m
 Run these commands on your terminal:
 
 ```bash
-git clone git@github.com:fititnt/uwazi-docker.git
+git clone https://github.com/fititnt/uwazi-docker.git
 cd uwazi-docker
 docker-compose run -e IS_FIRST_RUN=true --rm uwazi
 
