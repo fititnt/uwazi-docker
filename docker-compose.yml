@@ -10,7 +10,11 @@ services:
       - DBHOST=mongo
       - DATABASE_NAME=uwazi_development
       - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - UPLOADS_FOLDER=/data/uploaded_documents
+      # - LOGS_DIR=/path/to/log
       - IS_FIRST_RUN=${IS_FIRST_RUN:-false}
+    volumes:
+      - uwazi_uploaded_documents:/data/uploaded_documents
     depends_on:
       - elasticsearch
       - mongo
@@ -74,6 +78,8 @@ services:
       - 52000:3000
 
 volumes:
+  uwazi_uploaded_documents:
+    driver: local
   esdata1:
     driver: local
 
