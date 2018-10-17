@@ -14,7 +14,7 @@ services:
       # - LOGS_DIR=/path/to/log
       - IS_FIRST_RUN=${IS_FIRST_RUN:-false}
     volumes:
-      - uwazi_uploaded_documents:/data/uploaded_documents
+      - uploaded_documents:/data/uploaded_documents
     depends_on:
       - elasticsearch
       - mongo
@@ -32,7 +32,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - esdata1:/usr/share/elasticsearch/data
+      - elasticsearch_data1:/usr/share/elasticsearch/data
     # TODO: close these ports (fititnt, 2018-04-14 10:22 BRT)
     ports:
       - 9200:9200
@@ -78,9 +78,9 @@ services:
       - 52000:3000
 
 volumes:
-  uwazi_uploaded_documents:
+  uploaded_documents:
     driver: local
-  esdata1:
+  elasticsearch_data1:
     driver: local
 
 
