@@ -54,8 +54,8 @@ services:
     image: mongo:3.4
     restart: unless-stopped
     volumes:
-     - ./data/mongo:/data/db
-     #- ./data/dump:/dump
+      # - ./data/mongo:/data/db
+      - mongodb_data1:/data/db
     command: mongod --smallfiles
     ports:
       - 27017:27017
@@ -79,6 +79,8 @@ services:
 
 volumes:
   uploaded_documents:
+    driver: local
+  mongodb_data1:
     driver: local
   elasticsearch_data1:
     driver: local
