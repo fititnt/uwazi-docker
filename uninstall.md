@@ -18,6 +18,7 @@ programs and all content created.
 ```bash
 
 # Remove containers, networks and volumes created by uwazi-docker docker-compose up
+## WARNING! THIS WILL DELETE THE DATABASE AND DOCUMENTS!!!
 docker-compose down -v --rmi all --remove-orphans
 
 # data/ folder can contain additional files. If you are using linux, depending
