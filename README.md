@@ -22,15 +22,16 @@ See also [History of Uwazi](https://github.com/huridocs/uwazi/wiki/History-of-Uw
 ## Usage
 The uwazi-docker requires docker-compose installed. See
 [requirements](requirements.md). If you are a developer, can also check some
-advanced information on [development-instructions.md](development-instructions.md).
+advanced information on [development-instructions.md](development-instructions.md)
+and a draft of [production-instructions.md](production-instructions.md).
 
 ### Install
-Run these commands on your terminal:
+Run these commands on your terminal **only** the first time:
 
 ```bash
 git clone https://github.com/fititnt/uwazi-docker.git
 cd uwazi-docker
-docker-compose run -e IS_FIRST_RUN=true --rm uwazi
+docker-compose run -e IS_FIRST_RUN=true --rm uwazi # Install/Re-install from empty data
 
 ```
 <!-- docker-compose run --rm uwazi-installer -->
@@ -38,10 +39,10 @@ docker-compose run -e IS_FIRST_RUN=true --rm uwazi
 ### Run
 
 ```bash
-docker-compose up -d uwazi
+docker-compose up -d uwazi # Run uwazi on background (automatic restart on reboot unless stopped)
 ```
 
-Open your browser at <http://localhost:3000/>. User: _admin_, password: _admin_.
+Open your browser at <http://localhost:3000/>. Initial user: _admin_, password: _admin_.
 
 ### Basic docker commands
 
@@ -57,6 +58,12 @@ docker-compose up uwazi
 
 # See what containers are running now
 docker ps
+
+# See all docker volumes
+docker volume ls
+
+# See docker volumes that stores data from uwazi-docker (hint: these ones to backup & restore)
+docker volume ls | grep 'mongodb_data1\|uploaded_documents'
 
 # Want some GUI to see what is happening on MongoDB? Use nosqlclient
 docker-compose up -d mongo-gui-mongoclient
