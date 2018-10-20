@@ -53,8 +53,9 @@ services:
      - ./data/mongo:/data/db
      #- ./data/dump:/dump
     command: mongod --smallfiles
-    ports:
-      - 27017:27017
+    # Don't expose unprotected mongo db to the world, needs to be accessible only from within docker network
+    #ports:
+    #  - 27017:27017
     logging:
       options:
         max-size: 10m
