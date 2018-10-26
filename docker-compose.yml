@@ -33,9 +33,9 @@ services:
         hard: -1
     volumes:
       - elasticsearch_data1:/usr/share/elasticsearch/data
-    # TODO: close these ports (fititnt, 2018-04-14 10:22 BRT)
-    ports:
-      - 9200:9200
+    # Close these ports. No unprotected elasticsearch should be published.
+    # ports:
+    #  - 9200:9200
 
   # dejavu "The Missing Web UI for Elasticsearch"
   # See https://github.com/appbaseio/dejavu
@@ -57,8 +57,9 @@ services:
       # - ./data/mongo:/data/db
       - mongodb_data1:/data/db
     command: mongod --smallfiles
-    ports:
-      - 27017:27017
+  # Don't publish unprotected mongod
+  #  ports:
+  #    - 27017:27017
     logging:
       options:
         max-size: 10m
