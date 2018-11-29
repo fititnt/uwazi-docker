@@ -18,8 +18,8 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF505
   && apt-get update \
   && apt-get install -y mongodb-org-shell mongodb-org-tools
 
-## Download Uwazi v1.3
-RUN git clone -b v1.3 --single-branch --depth=1 https://github.com/huridocs/uwazi.git /home/node/uwazi/ \
+## Download Uwazi v1.4
+RUN git clone -b v1.4 --single-branch --depth=1 https://github.com/huridocs/uwazi.git /home/node/uwazi/ \
   && chown node:node -R /home/node/uwazi/ \
   && cd /home/node/uwazi/ \
   && yarn install \
