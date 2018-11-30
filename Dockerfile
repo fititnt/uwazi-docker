@@ -1,4 +1,4 @@
-FROM node:8-slim
+FROM node:8-jessie
 LABEL maintainer="Emerson Rocha <rocha@ieee.org>"
 
 # see https://github.com/nodejs/docker-node#how-to-use-this-image
