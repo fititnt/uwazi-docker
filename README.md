@@ -139,4 +139,13 @@ instead of Public Domain unlicense.
   - https://repo.mongodb.org/apt/debian/dists/bullseye/mongodb-org/
 
 
+# Refrech
+
+
+docker compose --file docker-compose.yml run -e IS_FIRST_RUN=true --rm uwazi
+
+# ...
+
+docker system prune --all
+
 -->
