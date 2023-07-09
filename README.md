@@ -104,3 +104,29 @@ has waived all copyright and related or neighboring rights to this work to
 
 Optionally, you can choose to use the [MIT License](https://opensource.org/licenses/MIT)
 instead of Public Domain unlicense.
+
+
+<!--
+
+# Tests on Ubuntu 20.04 LTS
+
+    fititnt@bravo:/workspace/git/fititnt/uwazi-docker$ docker compose --file /workspace/git/fititnt/uwazi-docker/docker-compose.yml run -e IS_FIRST_RUN=true --rm uwazi
+    stat /workspace/git/fititnt/uwazi-docker/docker-compose.yml: no such file or directory
+    fititnt@bravo:/workspace/git/fititnt/uwazi-docker$ docker compose --file docker-compose.yml run -e IS_FIRST_RUN=true --rm uwazi
+    stat /var/lib/snapd/void/docker-compose.yml: no such file or directory
+
+    fititnt@bravo:~/Downloads/uwazi-docker$ sudo su
+    [sudo] password for fititnt: 
+    root@bravo:/home/fititnt/Downloads/uwazi-docker# docker compose --file docker-compose.yml run -e IS_FIRST_RUN=true --rm uwazi
+
+    Logs
+    (...)
+    #0 3.526 Err http://security.debian.org jessie/updates/main amd64 Packages
+    #0 3.526   404  Not Found [IP: 151.101.130.132 80]
+    #0 3.786 Err http://deb.debian.org jessie/main amd64 Packages
+    #0 3.786   404  Not Found
+    #0 4.000 Err http://deb.debian.org jessie-updates/main amd64 Packages
+    #0 4.000   404  Not Found
+    (...)
+
+-->
