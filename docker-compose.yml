@@ -20,25 +20,43 @@ services:
       - elasticsearch
       - mongo
 
+  # elasticsearch:
+  #   # image: docker.elastic.co/elasticsearch/elasticsearch:5.5.3
+  #   # Based on https://github.com/huridocs/uwazi/releases/tag/1.123.2 . Please update this part in future
+  #   image: docker.elastic.co/elasticsearch/elasticsearch:7.17.6
+  #   restart: unless-stopped
+  #   # command: elasticsearch -Expack.security.enabled=false -Ecluster.name=docker-cluster -Ehttp.port=9200 -Ehttp.cors.allow-origin="http://localhost:51000" -Ehttp.cors.enabled=true -Ehttp.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization -Ehttp.cors.allow-credentials=true
+  #   command: elasticsearch -Expack.security.enabled=false -Ehttp.port=9200 -Ehttp.cors.allow-origin="http://localhost:51000" -Ehttp.cors.enabled=true -Ehttp.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization -Ehttp.cors.allow-credentials=true
+  #   environment:
+  #     # - cluster.name=docker-cluster
+  #     - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+  #     # - xpack.security.enabled=false
+  #   ulimits:
+  #     memlock:
+  #       soft: -1
+  #       hard: -1
+  #   volumes:
+  #     - elasticsearch_data1:/usr/share/elasticsearch/data
+  #   # Close these ports. No unprotected elasticsearch should be published.
+  #   # ports:
+  #   #  - 9200:9200
+
   elasticsearch:
-    # image: docker.elastic.co/elasticsearch/elasticsearch:5.5.3
-    # Based on https://github.com/huridocs/uwazi/releases/tag/1.123.2 . Please update this part in future
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.6
-    restart: unless-stopped
-    command: elasticsearch -Expack.security.enabled=false -Ecluster.name=docker-cluster -Ehttp.port=9200 -Ehttp.cors.allow-origin="http://localhost:51000" -Ehttp.cors.enabled=true -Ehttp.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization -Ehttp.cors.allow-credentials=true
-    environment:
-      - cluster.name=docker-cluster
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      # - xpack.security.enabled=false
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
+    build:
+      context: .
+      dockerfile: elastic-icu-7.17.6.Dockerfile
+    # container_name: uwazi-elasticsearch
     volumes:
+      # - esdata01:/usr/share/elasticsearch/data
       - elasticsearch_data1:/usr/share/elasticsearch/data
-    # Close these ports. No unprotected elasticsearch should be published.
-    # ports:
-    #  - 9200:9200
+    ports:
+      - '9200:9200'
+    environment:
+      - bootstrap.memory_lock=true
+      - indices.query.bool.max_clause_count=2048
+      - discovery.type=single-node
+      - 'ES_JAVA_OPTS=-Xms2g -Xmx2g'
+      - cluster.routing.allocation.disk.threshold_enabled=false
 
   # dejavu "The Missing Web UI for Elasticsearch"
   # See https://github.com/appbaseio/dejavu
