@@ -9,6 +9,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
   dh-autoreconf \
   git \
   libpng-dev \
+  libcurl3 \
+  openssl \
   poppler-utils
 
 RUN curl -fsSL https://pgp.mongodb.com/server-4.2.asc | \
@@ -17,7 +19,8 @@ RUN curl -fsSL https://pgp.mongodb.com/server-4.2.asc | \
 
 RUN echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-4.2.gpg ] http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.2 main" | tee /etc/apt/sources.list.d/mongodb-org-4.2.list
 RUN apt-get update
-RUN apt-get install -y mongodb-org-shell mongodb-org-tools 
+# RUN apt-get install -y mongodb-org-shell mongodb-org-tools 
+RUN apt-get install -y mongodb-org-tools 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
