@@ -21,6 +21,8 @@ if [ "$IS_FIRST_RUN" = "true" ] ; then
     mongorestore -h "${DBHOST:-mongo}" "$DB_INITIALIZATION_PATH" --db="${DATABASE_NAME:-uwazi_development}"
 
     echo "uwazi-docker: Applyng yarn reindex. This will use data from MongoDB to feed Elastic Search"
+    # yarn reindex
+    yarn migrate
     yarn reindex
 
     echo "uwazi-docker: If no fatal errors occurred, you will not need to use this command again"
