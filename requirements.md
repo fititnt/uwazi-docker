@@ -19,4 +19,4 @@ TODO: write about (fititnt, 2018-04-18 04:47 BRT)
 
 ### Docker
 [See updated instructions about how to install Docker Engine on Windows, Mac and Linux](https://docs.docker.com/compose/install/).
-Docker docker-compose is already installed.
+Docker docker compose is already installed.
