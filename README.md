@@ -129,4 +129,14 @@ instead of Public Domain unlicense.
     #0 4.000   404  Not Found
     (...)
 
+- Potential problems
+  - https://github.com/nodejs/docker-node/issues/1916
+  - https://github.com/nodejs/docker-node/issues/1918
+
+- EOL debian
+  - https://endoflife.date/debian
+- Mongo 4.2
+  - https://repo.mongodb.org/apt/debian/dists/bullseye/mongodb-org/
+
+
 -->
