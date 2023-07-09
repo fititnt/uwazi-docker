@@ -44,21 +44,21 @@ tabs.
 
 ```bash
 # To run and see messages
-docker-compose up elasticsearch mongo
+docker compose up elasticsearch mongo
 
 # To run on background use -d param
-docker-compose up -d elasticsearch mongo
+docker compose up -d elasticsearch mongo
 
 # Stop all containers from uwazi-docker after they where not more need and
 # avoid they stay running even after you reboot your operational system
-docker-compose down
+docker compose down
 ```
 
 The following step is optional if you want to populate the databases not using
 uwazi-docker.
 
 ```bash
-docker-compose run -e IS_FIRST_RUN=true --rm uwazi
+docker compose run -e IS_FIRST_RUN=true --rm uwazi
 ```
 
 ## Create your own repository
@@ -143,17 +143,17 @@ local development machine. **9300/tcp** means the same container have the port
 ```bash
 
 # See log messages of Mongo and Elastic Search
-docker-compose logs -f mongo elasticsearch
+docker compose logs -f mongo elasticsearch
 
 # Want some GUI to see what is happening on MongoDB? Use nosqlclient
-docker-compose up -d mongo-gui-mongoclient
+docker compose up -d mongo-gui-mongoclient
 
 # Want some GUI to see what is happening on Elastic Search? Try Dejavu
-docker-compose up -d elasticsearch-gui-dejavu
+docker compose up -d elasticsearch-gui-dejavu
 ```
 ### Configure ports of Mongo and Elastic Search
 
-At this point, you have to edit the file [docker-compose.yml](docker-compose.yml)
+At this point, you have to edit the file [docker compose.yml](docker compose.yml)
 and edit the hardcored values.
 
 Protip: the most common error of using uwazi-docker with Uwazi a port is already

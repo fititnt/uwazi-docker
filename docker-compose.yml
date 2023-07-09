@@ -13,6 +13,7 @@ services:
       - UPLOADS_FOLDER=/data/uploaded_documents
       # - LOGS_DIR=/path/to/log
       - IS_FIRST_RUN=${IS_FIRST_RUN:-false}
+      - UWAZI_RELEASE_TAG=${UWAZI_RELEASE_TAG:-production}
     volumes:
       - uploaded_documents:/data/uploaded_documents
     depends_on:
@@ -28,7 +29,7 @@ services:
     environment:
       - cluster.name=docker-cluster
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - xpack.security.enabled=false
+      # - xpack.security.enabled=false
     ulimits:
       memlock:
         soft: -1
@@ -55,12 +56,15 @@ services:
   mongo:
     # image: mongo:3.4
     # Based on https://github.com/huridocs/uwazi/releases/tag/1.123.2 . Please update this part in future
-    image: mongo:4.2
+    # image: mongo:4.2
+    # Using mongo 6.0 (not 4.2 as suggested by Uwazi 1.123.2) because mongo-shell on 4.2 don't run on Debian bullseye
+    image: mongo:6.0
     restart: unless-stopped
     volumes:
       # - ./data/mongo:/data/db
       - mongodb_data1:/data/db
-    command: mongod --smallfiles
+    command: mongod
+    # command: mongod --smallfiles
   # Don't publish unprotected mongod
   #  ports:
   #    - 27017:27017
