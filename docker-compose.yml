@@ -2,7 +2,10 @@ version: "3"
 
 services:
   uwazi:
-    build: ./
+    build:
+      context: ./
+      args:
+        UWAZI_GIT_RELEASE_REF: ${UWAZI_GIT_RELEASE_REF:-production}
     working_dir: /home/node/uwazi
     ports:
       - 3000:3000

@@ -1,5 +1,7 @@
 #!/bin/bash
-DB_INITIALIZATION_PATH="${DB_INITIALIZATION_PATH:-"/home/node/uwazi/dump/uwazi_development"}"
+DB_INITIALIZATION_PATH="${DB_INITIALIZATION_PATH:-"/home/node/uwazi/database/blank_state/uwazi_development"}"
+
+# NOTE: the costumization of "UWAZI_GIT_RELEASE_REF" for something beyond "production" needs testing.
 
 echo "uwazi-docker: UWAZI_GIT_RELEASE_REF: $UWAZI_GIT_RELEASE_REF"
 echo "uwazi-docker: IS_FIRST_RUN: $IS_FIRST_RUN"

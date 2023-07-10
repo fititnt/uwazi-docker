@@ -47,7 +47,7 @@ With this in mind, the default values might need updates (which in this case ple
 <pre>
 git clone https://github.com/fititnt/uwazi-docker.git
 cd uwazi-docker
-docker compose run -e IS_FIRST_RUN=true UWAZI_GIT_RELEASE_REF=production DB_INITIALIZATION_PATH=/home/node/uwazi/dump/uwazi_development --rm uwazi
+docker compose run -e IS_FIRST_RUN=true -e UWAZI_GIT_RELEASE_REF=production -e DB_INITIALIZATION_PATH=/home/node/uwazi/database/blank_state/uwazi_development --rm uwazi
 </pre>
 </details>
 
@@ -135,42 +135,7 @@ has waived all copyright and related or neighboring rights to this work to
 Optionally, you can choose to use the [MIT License](https://opensource.org/licenses/MIT)
 instead of Public Domain unlicense.
 
-
 <!--
-
-# Tests on Ubuntu 20.04 LTS
-
-    fititnt@bravo:/workspace/git/fititnt/uwazi-docker$ docker compose --file /workspace/git/fititnt/uwazi-docker/docker compose.yml run -e IS_FIRST_RUN=true --rm uwazi
-    stat /workspace/git/fititnt/uwazi-docker/docker compose.yml: no such file or directory
-    fititnt@bravo:/workspace/git/fititnt/uwazi-docker$ docker compose --file docker compose.yml run -e IS_FIRST_RUN=true --rm uwazi
-    stat /var/lib/snapd/void/docker compose.yml: no such file or directory
-
-    fititnt@bravo:~/Downloads/uwazi-docker$ sudo su
-    [sudo] password for fititnt: 
-    root@bravo:/home/fititnt/Downloads/uwazi-docker# docker compose --file docker compose.yml run -e IS_FIRST_RUN=true --rm uwazi
-
-    Logs
-    (...)
-    #0 3.526 Err http://security.debian.org jessie/updates/main amd64 Packages
-    #0 3.526   404  Not Found [IP: 151.101.130.132 80]
-    #0 3.786 Err http://deb.debian.org jessie/main amd64 Packages
-    #0 3.786   404  Not Found
-    #0 4.000 Err http://deb.debian.org jessie-updates/main amd64 Packages
-    #0 4.000   404  Not Found
-    (...)
-
-- Potential problems
-  - https://github.com/nodejs/docker-node/issues/1916
-  - https://github.com/nodejs/docker-node/issues/1918
-
-- EOL debian
-  - https://endoflife.date/debian
-- Mongo 4.2
-  - https://repo.mongodb.org/apt/debian/dists/bullseye/mongodb-org/
-
-
-# Refrech
-
 
 docker compose --file docker compose.yml run -e IS_FIRST_RUN=true --rm uwazi
 # (...)

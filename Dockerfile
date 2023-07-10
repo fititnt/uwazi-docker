@@ -1,7 +1,8 @@
 FROM node:18-bullseye
 LABEL maintainer="Emerson Rocha <rocha@ieee.org>"
 
-ARG UWAZI_GIT_RELEASE_REF=production
+# ARG UWAZI_GIT_RELEASE_REF=production
+ARG UWAZI_GIT_RELEASE_REF
 
 ## Install common software
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
