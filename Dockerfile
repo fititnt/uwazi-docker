@@ -3,8 +3,6 @@ LABEL maintainer="Emerson Rocha <rocha@ieee.org>"
 
 ARG UWAZI_GIT_RELEASE_REF=production
 
-# see https://github.com/nodejs/docker-node#how-to-use-this-image
-
 ## Install common software
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
   bzip2 \

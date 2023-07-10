@@ -37,6 +37,20 @@ docker compose run -e IS_FIRST_RUN=true --rm uwazi # Install/Re-install from emp
 
 With very fast internet and disks, this step will take between 8 to 15 minutes.
 
+<details>
+<summary>(Advanced) All initialization options with default values</summary>
+
+Uwazi docker fetch data from git, and a very specific release (UWAZI_GIT_RELEASE_REF defaults to tag production, but this likely eventually will require upgrade uwazi-docker itself) and initialize with empty database (DB_INITIALIZATION_PATH, but you may want to change for a example test database, or even upstream might change path in the future).
+
+With this in mind, the default values might need updates (which in this case please open an issue and report the problem) but in the meantime you can just change the options.
+
+<pre>
+git clone https://github.com/fititnt/uwazi-docker.git
+cd uwazi-docker
+docker compose run -e IS_FIRST_RUN=true UWAZI_GIT_RELEASE_REF=production DB_INITIALIZATION_PATH=/home/node/uwazi/dump/uwazi_development --rm uwazi
+</pre>
+</details>
+
 ### Run
 
 ```bash
