@@ -13,7 +13,9 @@ services:
       - UPLOADS_FOLDER=/data/uploaded_documents
       # - LOGS_DIR=/path/to/log
       - IS_FIRST_RUN=${IS_FIRST_RUN:-false}
-      - UWAZI_RELEASE_TAG=${UWAZI_RELEASE_TAG:-production}
+      - RUN_YARN_MIGRATE_REINDEX=${RUN_YARN_MIGRATE_REINDEX:-false}
+      - UWAZI_GIT_RELEASE_REF=${UWAZI_GIT_RELEASE_REF:-production}
+      - DB_INITIALIZATION_PATH=${DB_INITIALIZATION_PATH:-/home/node/uwazi/database/blank_state/uwazi_development}
     volumes:
       - uploaded_documents:/data/uploaded_documents
     depends_on:
