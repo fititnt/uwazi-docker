@@ -34,15 +34,31 @@ cd uwazi-docker
 docker compose run -e IS_FIRST_RUN=true --rm uwazi # Install/Re-install from empty data
 
 ```
-<!-- docker compose run --rm uwazi-installer -->
+
+With very fast internet and disks, this step will take between 8 to 15 minutes.
 
 ### Run
 
 ```bash
-docker compose up -d uwazi # Run uwazi on background (automatic restart on reboot unless stopped)
+# Run uwazi on background (automatic restart on reboot unless stopped)
+docker compose up -d uwazi
 ```
 
 Open your browser at <http://localhost:3000/>. Initial user: `admin`, password: `change this password now`.
+
+#### `yarn migrate` and `yarn reindex`
+
+At installation step the `yarn migrate` and `yarn reindex` are always executed,
+however the database will be erased to a blank state.
+However, if for some you already have real data and not major database upgrade,
+in which MongoDB and ElasticSearch might need some minor custom steps outside of Uwazi control,
+this command will run once only the `yarn migrate` and `yarn reindex`.
+
+```bash
+docker compose run -e RUN_YARN_MIGRATE_REINDEX=true --rm uwazi
+```
+
+Just to be sure, if working with real data, **please backup the volumes first**.
 
 ### Basic docker commands
 
