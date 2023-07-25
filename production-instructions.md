@@ -1,8 +1,8 @@
 # Use of Uwazi in production environment
 <!--
 > Disclaimer: [uwazi-docker](https://github.com/fititnt/uwazi-docker) can make it
-easy for someone unskilled test [Uwazi](https://www.uwazi.io/) and, at best,
-in hands with someone with a knowledge of docker/databases and free time, be a
+easy for an unskilled person to test [Uwazi](https://www.uwazi.io/) and, at best,
+in the hands of someone with a knowledge of docker/databases and free time, be a
 reference base to use for a small deployment **at your own risk**. The Uwazi
 itself (the software, without the full stack with Mongodb and ElasticSearch on
 this dockerized version) are production-ready, safe to use on your organization.
@@ -11,9 +11,9 @@ this dockerized version) are production-ready, safe to use on your organization.
 ## SaaS
 Software as a service is offered in <https://www.uwazi.io/>.
 
-## On your server (Uwazi oficial documentation)
+## On your server (Uwazi official documentation)
 
-Please look at the oficial documentation at huridocs/uwazi Wiki on
+Please look at the official documentation at huridocs/uwazi Wiki on
 <https://github.com/huridocs/uwazi/wiki/Install-Uwazi-on-your-server>.
 
 ## With uwazi-docker
@@ -25,8 +25,8 @@ instructions **at your own risk**. Suggestions are welcome.
 ### Where is my data?
 Your data is stored on [docker volumes](https://docs.docker.com/storage/volumes/).
 Each volume can be attached to only one active container. The most reliable way
-to backup is take snapshot of all data containers at same time, so consider this
-when doing a backup in a active moment of your application.
+to backup is to take a snapshot of all data containers at the same time, so consider this
+when doing a backup in an active moment of your application.
 
 The data volumes (and sources of data if you are using Uwazi without docker)
 that contain real data that cannot be recreated are:
@@ -35,12 +35,12 @@ that contain real data that cannot be recreated are:
 - **uploaded_documents folder**
 - _Elastic Search database_ (Cache that needs to be recreated)
 
-> You can backup and restore the Elastic Search database, but since is possible
-to recreate it's indexes by running `yarn reindex` from a non-dockerized
-uwazi or a uwazi-docker dockerised uwazi service, it is basic a cache for search.
+> You can backup and restore the Elastic Search database; still, it is possible
+to recreate its indexes by running `yarn reindex` from a non-dockerized
+uwazi or a uwazi-docker dockerised uwazi service; it is basically a cache for search.
 **At this current version uwazi-docker does not automate `yarn reindex`, so
 you would need to use [docker exec](https://docs.docker.com/engine/reference/commandline/exec/)
-to do it once after restore a backup.**
+to do it once after restoring a backup.**
 
 
 To see the names of the docker volumes, use this command:
