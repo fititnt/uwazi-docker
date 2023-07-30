@@ -37,6 +37,10 @@ if [ "$IS_FIRST_RUN" = "true" ] ; then
 elif [ "$IS_FIRST_DEMO_RUN" = "true" ] ; then
     echo "uwazi-docker: Enviroment variable IS_FIRST_DEMO_RUN is true. Assuming need to install database from blank state"
 
+    echo "uwazi-docker: Restoring pdfs..."
+    rm ./uploaded_documents/*
+    cp ./uwazi-fixtures/uploaded_documents/* ./uploaded_documents/
+
     echo "uwazi-docker: Deleting ${DBHOST:-mongo} ${DATABASE_NAME:-uwazi_development} MongoDB database"
     # mongo -host ${DBHOST:-mongo} ${DATABASE_NAME:-uwazi_development} --eval "db.dropDatabase()"
     mongosh -host "${DBHOST:-mongo}" "${DATABASE_NAME:-uwazi_development}" --eval "db.dropDatabase()"

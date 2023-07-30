@@ -31,11 +31,12 @@ Run these commands on your terminal **only** the first time:
 ```bash
 git clone https://github.com/fititnt/uwazi-docker.git
 cd uwazi-docker
-docker compose run -e IS_FIRST_RUN=true --rm uwazi # Install/Re-install from empty data
-
+docker compose run -e IS_FIRST_RUN=true --rm uwazi # Install without sample data
+# docker compose run -e IS_FIRST_DEMO_RUN=true --rm uwazi # Install with sample data
 ```
 
 With very fast internet and disks, this step will take between 8 to 15 minutes.
+The `IS_FIRST_DEMO_RUN=true` is an alternative that starts with test/example data.
 
 <details>
 <summary>(Advanced) All initialization options with default values</summary>
@@ -59,6 +60,7 @@ docker compose up -d uwazi
 ```
 
 Open your browser at <http://localhost:3000/>. Initial user: `admin`, password: `change this password now`.
+(or if using `IS_FIRST_DEMO_RUN=true`, user: `admin`, password: `admin`).
 
 #### `yarn migrate` and `yarn reindex`
 
