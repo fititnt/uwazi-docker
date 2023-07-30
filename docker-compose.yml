@@ -25,6 +25,7 @@ services:
     depends_on:
       - elasticsearch
       - mongo
+      - redis
 
   # elasticsearch:
   #   # image: docker.elastic.co/elasticsearch/elasticsearch:5.5.3
@@ -109,6 +110,16 @@ services:
       - mongo
     ports:
       - 52000:3000
+
+  redis:
+    image: 'redis:5.0.14'
+    # container_name: uwazi-redis
+    command: redis-server
+    ports:
+      - '6379:6379'
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
 
 volumes:
   uploaded_documents:
