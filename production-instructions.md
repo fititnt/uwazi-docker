@@ -13,8 +13,10 @@ Software as a service is offered in <https://www.uwazi.io/>.
 
 ## On your server (Uwazi official documentation)
 
-Please look at the official documentation at huridocs/uwazi Wiki on
+Please look at the official documentation (in English) at huridocs/uwazi Wiki on
 <https://github.com/huridocs/uwazi/wiki/Install-Uwazi-on-your-server>.
+
+For other languages, see <https://uwazi.io/page/9852italrtk/support>.
 
 ## With uwazi-docker
 > In short: **uwazi-docker is not designed to run in production**. If in the
@@ -46,7 +48,13 @@ to do it once after restoring a backup.**
 To see the names of the docker volumes, use this command:
 
 ```sh
-docker volume ls | grep 'mongodb_data1\|uploaded_documents'
+docker volume ls | grep uwazi
+```
+This will show something similar to:
+```sh
+local     uwazi-docker_elasticsearch_data1
+local     uwazi-docker_mongodb_data1
+local     uwazi-docker_uploaded_documents
 ```
 
 ### How to backup docker volumes
